@@ -1,3 +1,4 @@
+"""Console interface for generate.py"""
 import argparse
 
 

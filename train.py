@@ -1,3 +1,4 @@
+"""Module that creates model from set of texts."""
 import os
 import sys
 import markov_model
@@ -6,6 +7,15 @@ from parser import parse
 
 
 def learn_from_text(model, lc, file=sys.stdin):
+    """Adds text from file to model
+
+    :param model: Model
+        Model, that will be updated.
+    :param lc: Boolean
+        if True, all text will be converted to lowercase.
+    :param file: File or sys.stdin
+        Text source
+    """
     for line in file:
         if lc:
             line = line.lower()
@@ -15,6 +25,7 @@ def learn_from_text(model, lc, file=sys.stdin):
 
 
 def main():
+    """Trains the model on files from the set"""
     args = training_console_interface.get_args()
     model = markov_model.Model(args.order - 1)
     if args.input_dir is None:
