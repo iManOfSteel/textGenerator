@@ -1,16 +1,13 @@
 import re
 
 
-delims = ['.', '!', '?']
-
-
 def parse(line):
-    for delim in delims:
-        line = line.replace(delim, '.')
+    delimiters = ['.', '!', '?']
+    for delimiter in delimiters:
+        line = line.replace(delimiter, '.')
     sentences = filter(None, line.split('.'))
     result = []
     for sentence in sentences:
-        sentence = re.sub(r'\W+', ' ', sentence)
-        sentence = ''.join([i for i in sentence if not i.isdigit()])
+        sentence = re.sub(r'[^a-zA-Zа-яА-Я]', ' ', sentence)
         result.append(sentence.split())
     return result

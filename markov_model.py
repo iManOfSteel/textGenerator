@@ -52,6 +52,6 @@ class Model(dict):
             previous_window = previous_window[1:] + (next_word, )
         return ' '.join(sentence)
 
-    def save_model(self, path='models/', name='model'):
-        with open(os.path.join(path, name), 'wb') as f:
+    def save_model(self, path):
+        with open(path, 'wb') as f:
             pickle.dump(self, f)
