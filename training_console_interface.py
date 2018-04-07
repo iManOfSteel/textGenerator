@@ -4,7 +4,7 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-dir',
-                        help='Absolute path do directory with documents')
+                        help='Path do directory with documents')
     parser.add_argument('--model', required=True,
                         help='Model saving destination')
     parser.add_argument('--lc', action='store_true',

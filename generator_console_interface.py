@@ -4,7 +4,7 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', required=True,
-                        help='Absolute path to model')
+                        help='Path to model')
     parser.add_argument('--length', required=True, type=int,
                         help='Length of the text')
     parser.add_argument('--seed',
