@@ -11,12 +11,9 @@ def parse(line):
     :return: list
         List of parsed sentences. Each sentence - a word list.
     """
-    delimiters = ['.', '!', '?']
-    for delimiter in delimiters:
-        line = line.replace(delimiter, '.')
-    sentences = filter(None, line.split('.'))
+    word_pattern = r'[a-zA-Zа-яА-Я]+'
+    sentences = re.split(r'[.!?]+', line)
     result = []
     for sentence in sentences:
-        sentence = re.sub(r'[^a-zA-Zа-яА-Я]', ' ', sentence)
-        result.append(sentence.split())
+        result.append(re.findall(word_pattern, sentence))
     return result

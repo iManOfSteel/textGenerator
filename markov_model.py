@@ -9,7 +9,7 @@ class Vertex(dict):
     """
     def __init__(self):
         super().__init__()
-        self.__keys_number = 0
+        self.keys_number = 0
 
     def add_key(self, key):
         """Adds word.
@@ -21,19 +21,14 @@ class Vertex(dict):
             self[key] += 1
         else:
             self[key] = 1
-        self.__keys_number += 1
+        self.keys_number += 1
 
     def get_random_word(self):
         """Returns next word, based on the frequencies,
          with which words occur.
          """
-        rand = random.randint(0, self.__keys_number - 1)
-        current_sum = 0
-        keys_list = self.keys()
-        for key in keys_list:
-            current_sum += self[key]
-            if current_sum > rand:
-                return key
+        return random.choices(list(self.keys()),
+                              weights=list(self.values()))[0]
 
 
 class Model(dict):

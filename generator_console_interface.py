@@ -12,4 +12,6 @@ def get_args():
                         help='Beginning of the text')
     parser.add_argument('--output',
                         help='Path to output file')
+    parser.add_argument('--max-output-len', type=int, default=100,
+                        help='Max line length in output')
     return parser.parse_args()
